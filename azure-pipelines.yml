@@ -21,14 +21,10 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          rss-feed:$(tag)
-    - task: Docker@2
       inputs:
         containerRegistry: 'docker-hub'
         repository: 'rss-feed'
-        command: 'push'
+        command: 'buildAndPush'
+        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
+        tags: 'rss-feed$(Build.BuildId)'
