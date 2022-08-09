@@ -1,0 +1,12 @@
+{% extends "index.html.j2" %}
+{% block content %}
+{% for article in rss_feed %}
+<div class="card">
+  <div class="card-body">
+    <h3>{{ article.title }}</h3><br>
+    {{ article.published }}<br>
+    <a class="nav-link active" aria-current="page" href="{{ article.link }}">{{ article.title }}</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

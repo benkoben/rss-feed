@@ -1,0 +1,3 @@
+feedparser
+Jinja2
+Flask
