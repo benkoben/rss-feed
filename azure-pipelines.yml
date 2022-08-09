@@ -23,8 +23,8 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'docker-hub'
-        repository: 'rss-feed'
+        repository: 'mirakelsvampen/rss-feed'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         buildContext: '$(Build.SourcesDirectory)'
-        tags: 'rss-feed$(Build.BuildId)'
+        tags: '$(Build.BuildId)'
